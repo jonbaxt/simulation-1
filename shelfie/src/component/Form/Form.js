@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Form.css';
+import { Link } from 'react-router-dom';
+import Routes from './Routes';
 
 export default class Form extends Component {
     constructor() {
@@ -68,6 +70,8 @@ export default class Form extends Component {
                 <div className='ButtonContainer'>
                     <button onClick={this.clearBoxes}>Cancel</button>
                     <button onClick={this.sendToDatabase} >Add to Inventory</button>
+
+                    <button>Save Changes</button>
                 </div>
             </div>
         )

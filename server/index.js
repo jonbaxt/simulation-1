@@ -20,6 +20,10 @@ app.get('/api/inventory', con.fetchData);
 
 app.post('/api/inventory', con.postNewData);
 
+app.put('/api/inventory/:id', con.editData);
+
+app.delete('/api/inventory/:id', con.deleteData);
+
 
 
 const port = 3013;

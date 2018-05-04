@@ -29,6 +29,27 @@ module.exports = {
 
         })
 
+    },
+    editData: (req, res ) => {
+        const id = req.params.id;
+        const { name, price, img } = req.body;
+
+        dbInstance.edit_prodcut([ id, name, price, img ])
+        .then( (callb )  => {
+            res.status(200).send(dbInstance.get_inventory)
+        }).catch( (err) => {
+            res.status(500).send( err);
+        })
+
+    },
+    deleteData: (req, res) => { 
+        const id = req.params.id;
+        dbInstance.delete_product([id])
+        .then( (call)  => {
+            res.status(200).send(dbInstance.get_inventory)
+        }).catch( err => {
+            console.log(err);
+        })
     }
 
 
