@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
  import Delete from './Delete';
 
-export default function Product(props) {
+export default function Product(props, comp) {
     // render(){
         function createTable(props) {
             let create = props.map((element, ind) => {
@@ -16,14 +16,16 @@ export default function Product(props) {
                             <h4>{element.price}</h4>
                         </div>
                         {/* <Link to='/delete' >Delete</Link> */}
-                            {/* <Delete here={ind} /> */}
+                            <Delete here={ind} />
                         {/* <button onClick={console.log(`Key Number `,ind)} className='nicebutton'>Delete</button> */}
-                        {/* <button className='nicebutton'>Edit</button> */}
+                        <button className='nicebutton'>Edit</button>
                     </div>
                 )
             })
             return create;
         }
+
+        console.log(comp);
         return (
             <div>
                 {createTable(props)}

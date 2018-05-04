@@ -17,7 +17,7 @@ export default class Dashboard extends Component {
         console.log(this.props.getReq)
     }
     callAxios(){
-        this.props.getReq('/api/inventory')
+        return this.props.getReq;
         // axios.get('/api/inventory').then( give => {
         //     console.log(give);
         // })
@@ -33,7 +33,7 @@ export default class Dashboard extends Component {
         return(
             <div>
                 {/* {Routes} */}
-                {Product(dataArr)}
+                {Product(dataArr, this.callAxios)}
                 {/* <Product give={this.props.giveit} /> */}
             </div>
         )

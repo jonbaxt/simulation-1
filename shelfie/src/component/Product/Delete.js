@@ -7,7 +7,7 @@ export default class Delete extends Component {
 constructor(props){
     super(props)
 
-    console.log(props)
+    // console.log(props)
     this.state = {
         buttons: [],
         dataTo: [],
@@ -18,9 +18,9 @@ constructor(props){
 
 componentDidMount(){
     axios.get('/api/inventory').then( result => {
-        console.log(result.data)
+        // console.log(result.data)
         this.setState({inventory: result.data})
-        console.log(this.state.inventory);
+        // console.log(this.state.inventory);
       }).catch( err => console.log( err ) )
 }
 
@@ -28,7 +28,7 @@ deleteProduct(){
     // console.log(this.props);
     let indexNumber = this.props.here;
     // console.log(indexNumber);
-    axios.delete(`/api/inventory/${indexNumber}`)
+    axios.delete(`/api/inventory/`+indexNumber)
     .then( (elem ) => {
         console.log(`This is inside delete from the method`,elem)
         // this.componentDidUpdate();
