@@ -1,2 +1,2 @@
-DELETE FROM simproduct
+DELETE FROM simproducts
 WHERE id = $1;

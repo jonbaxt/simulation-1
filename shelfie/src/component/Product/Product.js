@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+ import Delete from './Delete';
+
 export default function Product(props) {
     // render(){
         function createTable(props) {
@@ -13,8 +15,10 @@ export default function Product(props) {
                             <h3>{element.name}</h3>
                             <h4>{element.price}</h4>
                         </div>
-                        <button className='nicebutton'>Delete</button>
-                        <button className='nicebutton'>Edit</button>
+                        {/* <Link to='/delete' >Delete</Link> */}
+                            {/* <Delete here={ind} /> */}
+                        {/* <button onClick={console.log(`Key Number `,ind)} className='nicebutton'>Delete</button> */}
+                        {/* <button className='nicebutton'>Edit</button> */}
                     </div>
                 )
             })

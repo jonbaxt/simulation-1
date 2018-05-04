@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-import {  Route, Link, Switch } from 'react-router-dom';
+// import {  Route, Link, Switch } from 'react-router-dom';
 
 
 import Dashboard from './component/Dashboard/Dashboard';
@@ -19,6 +19,8 @@ class App extends Component {
     }
     this.handleInventoryToDash = this.handleInventoryToDash.bind( this );
     this.postNewProduct = this.postNewProduct.bind( this );
+    this.componentDidMount = this.componentDidMount.bind( this );
+
   }
   
   componentDidMount(){
@@ -38,6 +40,8 @@ class App extends Component {
     // axios.post()
   }
 
+
+
   handleInventoryToDash(){
     let array= this.state.inventory;
     return array;
@@ -52,8 +56,8 @@ class App extends Component {
         
         <div className='bottom'>
         
-        <Dashboard className='Dash' giveit={this.handleInventoryToDash} />
-        <Form callme={this.postNewProduct} />
+        <Dashboard className='Dash' giveit={this.handleInventoryToDash} getReq={this.componentDidMount} />
+        <Form callme={this.postNewProduct}/>
         </div>
       </div>
     );

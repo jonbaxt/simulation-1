@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Form.css';
-import { Link } from 'react-router-dom';
-import Routes from './Routes';
+// import { Link } from 'react-router-dom';
+// import Routes from './Routes';
 
 export default class Form extends Component {
     constructor() {
