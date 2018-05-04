@@ -1,0 +1,14 @@
+.FormContainer{
+    background: #3AD886;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 5%;
+}
+
+
+
+
+.ButtonContainer>button{
+    background: #ED6B5a;
+}
