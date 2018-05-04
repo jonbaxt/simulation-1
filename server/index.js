@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-// const cors = require('cors');
+const cors = require('cors');
 const massive = require('massive');
 require('dotenv').config();
 
@@ -8,7 +8,7 @@ const con = require('./controller');
 
 const app = express();
 app.use(bodyParser.json());
-// app.use( cors() );
+app.use( cors() );
 
 massive(process.env.CONNECTION_STRING)
     .then(dbInstance => {
@@ -17,6 +17,8 @@ massive(process.env.CONNECTION_STRING)
     }).catch(err => console.log(`Database Connection Error`))
 
 app.get('/api/inventory', con.fetchData);
+
+app.post('/api/inventory', con.postNewData);
 
 
 

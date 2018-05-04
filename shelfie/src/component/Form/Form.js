@@ -10,6 +10,7 @@ export default class Form extends Component {
             imgURL: ''
         }
         this.clearBoxes = this.clearBoxes.bind( this );
+        this.sendToDatabase = this.sendToDatabase.bind( this );
     }
     handleNameChange(theChange) {
         this.setState({ name: theChange });
@@ -20,6 +21,14 @@ export default class Form extends Component {
     handleimgURLChange(theChange) {
         this.setState({ imgURL: theChange });
     }
+    changePicture(){
+        if(this.state.imgURL.find('http')){
+            return 'http://saveabandonedbabies.org/wp-content/uploads/2015/08/default.png'
+        }else {
+
+
+        }
+    }
     clearBoxes() {
         this.setState({
             name: '',
@@ -27,15 +36,28 @@ export default class Form extends Component {
             imgURL: ''
         })
     }
-    // sendToDatabase() {
+    sendToDatabase() {
+        let conv = Number(this.state.price);
+        const newProduct = {
+            'name' : this.state.name,
+            'price' : conv,
+            'img' : this.state.imgURL
+        }
 
-    // }
+        // this.props.callme(newProduct)
+        console.log(newProduct)
+        // console.log(this.props)
+        this.props.callme(newProduct);
+        this.clearBoxes();
+    }
+
+    // ('http://saveabandonedbabies.org/wp-content/uploads/2015/08/default.png')
 
     // C:\Users\Jon Baxter\Documents\DevMountain\SIMULATIONS\simulation-1\shelfie\src\component\Form\defaultImg.png
     render() {
         return (
             <div className='FormContainer'>
-                <img src={this.state.imgURL} alt='' />
+                <img className='imageSized' src={this.state.imgURL} alt='http://saveabandonedbabies.org/wp-content/uploads/2015/08/default.png' />
                 <h2>Image URL:</h2>
                 <input type='text' placeholder='image url' value={this.state.imgURL} onChange={(element) => this.handleimgURLChange(element.target.value)} />
                 <h2>Product Name:</h2>

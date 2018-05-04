@@ -14,22 +14,43 @@ class App extends Component {
     this.state = {
       inventory: []
     }
+    this.handleInventoryToDash = this.handleInventoryToDash.bind( this );
+    this.postNewProduct = this.postNewProduct.bind( this );
   }
   
   componentDidMount(){
     axios.get('/api/inventory').then( result => {
       console.log(result.data)
       this.setState({inventory: result.data})
+      console.log(this.state.inventory);
     }).catch( err => console.log( err ) )
+  }
+
+  postNewProduct(element){
+    axios.post('/api/inventory', element).then( result => {
+      console.log(result)
+      // this.setState({inventory: result.data})
+      this.componentDidMount();
+    }).catch( err => console.log(err));
+    // axios.post()
+  }
+
+  handleInventoryToDash(){
+    let array= this.state.inventory;
+    return array;
   }
 
   render() {
     return (
       <div className="App">
+        <div className="head">
         <Header />
+       </div>
+        
         <div className='bottom'>
-        <Dashboard />
-        <Form  />
+        
+        <Dashboard className='Dash' giveit={this.handleInventoryToDash} />
+        <Form callme={this.postNewProduct} />
         </div>
       </div>
     );

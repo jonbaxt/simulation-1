@@ -2,7 +2,7 @@ module.exports = {
     fetchData: (req, res) => {
         const dbInstance = req.app.get( 'db' );
         
-        dbInstance.getAll()
+        dbInstance.get_inventory()
         .then( (table) => {
             console.log(table);
             console.log(req.body);
@@ -11,6 +11,23 @@ module.exports = {
             console.log(errorMessage);
             res.status(500).send( errorMessage );
         });
+        
+    },
+    postNewData: (req, res) => {
+        const dbInstance = req.app.get( 'db' );
+        const { name, price, img } = req.body;
+        console.log(name);
+
+        dbInstance.create_product([ name, price, img ])
+        .then( (callb) =>{
+            res.status(200).send(dbInstance.get_inventory);
+
+
+        }).catch( (err) => {
+            res.status(500).send(err);
+
+
+        })
 
     }
 

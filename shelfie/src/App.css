@@ -2,14 +2,46 @@
   text-align: center;
 } */
 
+.head{
+  height: 10%;
+  background: #AB2A19;
+  display: flex;
+  color: white;
+}
+
 .bottom{
   display: flex;
   justify-content: center;
-  
+  align-content: space-between space-around;
+  width: 95%;
+  margin: 1px;
   /* flex-flow: space-between;   */
 }
 
+.Dash{
+  width: 40%;
+  background: purple;
+}
 
+.ProductBox{
+  /* display: flex; */
+  justify-content: space-around;
+  flex-direction: column;
+  width: 40%;
+  background: #D34735;
+  padding: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 5%;
+}
+
+/* .textCont{
+
+} */
+
+.imageSized{
+  width: 200px;
+}
 
 
 /* 
