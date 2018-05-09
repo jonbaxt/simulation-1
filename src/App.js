@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import { HashRouter } from 'react-router-dom';
+
 
 import Header from './component/Header/Header';
 import Dashboard from './component//Dashboard/Dashboard';
@@ -17,23 +19,29 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <div className='header' >
-          <Header />
-        </div>
-
-        <div className='bodyArea'>
-
-          <div className='dash'>
-            <Dashboard />
+        <HashRouter>
+          <div>
+         
+         
+          <div className='header' >
+            <Header />
           </div>
 
-          <div className='form'>
-          <Form />
+          <div className='bodyArea'>
+
+            <div className='dash'>
+              <Dashboard />
+            </div>
+
+            <div className='form'>
+              <Form />
+            </div>
+
           </div>
-
-        </div>
-
-
+          
+          
+          </div>
+        </HashRouter>
       </div>
     );
   }
