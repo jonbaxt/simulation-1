@@ -1,18 +1,21 @@
-/* .App {
-  text-align: center;
-} */
+ /* .App {
+  padding-top: 30px;
+}  */
 
 .head{
   height: 10%;
+  width: 100%;
   background: #AB2A19;
   display: flex;
   color: white;
+  position: fixed;
 }
 
 .bottom{
   display: flex;
   justify-content: center;
   align-content: space-between space-around;
+  padding-top: 100px;
   width: 95%;
   margin: 1px;
   /* flex-flow: space-between;   */
@@ -25,22 +28,25 @@
 
 .ProductBox{
   /* display: flex; */
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: column;
-  width: 40%;
+  width: 80%;
   background: #D34735;
   padding: 20px;
   padding-left: 40px;
   padding-right: 40px;
   border-radius: 5%;
 }
+.ProductBox>image{
+  justify-content: center;
+}
 
-/* .textCont{
-
-} */
+.textCont{
+  display: flex;
+} 
 
 .imageSized{
-  width: 200px;
+  width: 300px;
 }
 
 
