@@ -14,6 +14,10 @@ massive( process.env.SECRET ).then( dbInst => {
 
 app.use( bodyParser.json() );
 
+app.get('/api/products', controller.sendAll);
+
+
+app.delete('/api/products/:id', controller.removeProduct);
 
 
 

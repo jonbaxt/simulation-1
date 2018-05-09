@@ -1,20 +1,58 @@
 import React, { Component } from 'react';
 import './App.css';
 import { HashRouter } from 'react-router-dom';
-
+import axios from 'axios';
 
 import Header from './component/Header/Header';
 import Dashboard from './component//Dashboard/Dashboard';
 import Form from './component/Form/Form';
 
 class App extends Component {
-  constructor() {
+  constructor(){
     super()
     this.state = {
-      save: ''
+        data: []
     }
+    this.handleData = this.handleData.bind( this );
+    this.handleNewData = this.handleNewData.bind( this );
+    this.handleDelete = this.handleDelete.bind( this );
+}
+componentDidMount(){
+  axios.get('/api/products').then( (element) => {
+    this.setState({ data: element.data})
+    // console.log( element );
+  })
+}
 
+handleDelete( id ){
+  axios.delete(`/api/products/${id}`).then( (element) => {
+    this.setState({ data: element.data})
+    console.log( element );
+  }).catch( err => console.log( err ));
+}
+
+handleData(){
+    return this.state.data
+}
+handleNewData(element){
+  let newId = this.state.data.length;
+  const { name, price, imgURL } = element
+  const formattedElement = {
+    id: newId,
+    name,
+    price,
+    imgURL
   }
+
+  let newData = this.state.data;
+  newData.push(formattedElement);
+  this.setState({
+    data: newData
+  })
+}
+  // componentDidMount(){
+
+  // }
 
   render() {
     return (
@@ -30,11 +68,11 @@ class App extends Component {
           <div className='bodyArea'>
 
             <div className='dash'>
-              <Dashboard />
+              <Dashboard give={this.handleData} delReq={this.handleDelete} />
             </div>
 
             <div className='form'>
-              <Form />
+              <Form giveBack={this.handleNewData} />
             </div>
 
           </div>

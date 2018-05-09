@@ -8,9 +8,9 @@ export default class Dashboard extends Component{
     render(){
         return (
             <div className='dashboardComponent' >
-                <Product />
+                {Product(this.props.give, this.props.delReq)}
+                {/* <Product give={this.handleData} /> */}
             </div>
         )
     }
 }
-

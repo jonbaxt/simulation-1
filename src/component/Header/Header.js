@@ -8,6 +8,9 @@ export default function Header(){
         <div className='headerComponent' >
            <Link to='/' ><img className='icon' src={img} alt=''   /></Link> 
            <h1>SHELFIE</h1>
+
+           <button className='button'>Dashboard</button>
+           <button className='button' >Add to Inventory</button>
         </div>
     )
 }
