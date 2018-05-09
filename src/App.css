@@ -66,8 +66,6 @@
 
 .dashboardComponent{
   color: white;
-  border-radius: 10px;
-  background-color: #AB2A19;
 }
 
 .formComponent{
@@ -121,6 +119,18 @@
 }
 /* ----------------------------------------------------------------------------- */
 
+.product{
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #D34735;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+}
 
+.pic2{
+  border: solid black 1px;
+  width: 60%;
+}
 
 /* ----------------------------------------------------------------------------- */
