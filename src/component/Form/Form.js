@@ -1,28 +1,34 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { changeFormButton, getEditChange, editButton } from '../../ducks/reducer';
+import  reducer  from '../../ducks/reducer';
+// import store from '../../store'
+
 import blankImage from '../../Resources/defaultImg.png';
+
 
 const ADD_CHANGE = 'ADD';
 const EDIT_CHANGE = 'EDIT';
 
-export default class Form extends Component{
+class Form extends Component{
     constructor(){
         super()
         this.state = {
-            url: '',
-            name: '',
-            price: '',
-            yep: ''
+            url: '',            //Stores URL Input
+            name: '',           //Stores 
+            price: '',          //Stores
+            change: 'ADD'          //Change from add to edit
         }
+        // this.state.change = this.state.change.bind( this );
 
-
-        // this.ADD_CHANGE = this.ADD_CHANGE.bind( this );
-        // this.EDIT_CHANGE = this.EDIT_CHANGE.bind( this );
         this.handleNameChange = this.handleNameChange.bind( this )
         this.handlePriceChange = this.handlePriceChange.bind( this )
         this.handleURLChange = this.handleURLChange.bind( this )
         this.handleCancel = this.handleCancel.bind( this )
         this.handlePassBack = this.handlePassBack.bind( this );
         this.changeButtonOnForm = this.changeButtonOnForm.bind( this );
+        this.handleEditStart = this.handleEditStart.bind( this );
     }
     
 
@@ -39,7 +45,8 @@ export default class Form extends Component{
         this.setState({
             url: '',
             name: '',
-            price: ''
+            price: '',
+            change: 'ADD'
         })
     }
     handlePassBack(){
@@ -51,7 +58,24 @@ export default class Form extends Component{
         this.props.giveBack(newProd)
     }
 
+    handleEditStart(props){
+        console.log( props );
+        // this.setState({ change: this.props.getOne })
+        console.log( this.props.getOne() )
+        // this.setState({
+        //     change: 
+        // })
+    }
+    
+    // componentDidUpdate(oldProps, newProps){
+    //     if(oldProps !== newProps){
+    //         console.log(oldProps !== newProps)// render;   
+    //     }
+    // }
+    
     changeButtonOnForm( buttonAskedFor ){
+        // this.handleEditStart();
+        console.log(buttonAskedFor);
         if(buttonAskedFor === ADD_CHANGE){
             return (  <button className='button' onClick={this.handlePassBack} >Add to Inventory</button> )
         }else if(buttonAskedFor === EDIT_CHANGE){
@@ -89,8 +113,8 @@ export default class Form extends Component{
 
                 <div className='buttonBox' >
                 <button className='button' onClick={this.handleCancel} >Cancel</button>
-                 {/* //TODO: Hard Coded, need to change when individual edit is called. */}
-                {this.changeButtonOnForm(EDIT_CHANGE)} 
+                {this.changeButtonOnForm(this.state.change)}
+                {/* {this.handleEditStart}  */}
                 </div>
 
             </div>
@@ -98,4 +122,11 @@ export default class Form extends Component{
     }
 }
 
+function mapStateToProps( state ){
+    const { editButton } = state;
+    return {
+        editButton: editButton
+    };
+}
 
+export default connect(mapStateToProps, { changeFormButton })(Form);

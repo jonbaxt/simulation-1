@@ -35,6 +35,11 @@ module.exports = {
     sendAll: ( req, res, next ) => {
         res.status(200).send(testData);
     },
+    retreveAProduct: ( req,res, next ) => {
+        const { id } = req.params;
+        let individualObject = testData[id];
+        res.status(200).send( individualObject );
+    },
     removeProduct: (req, res, next ) => {
         const { id } = req.params;
         testData.splice(id, 1)

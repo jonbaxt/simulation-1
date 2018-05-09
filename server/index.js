@@ -16,6 +16,7 @@ app.use( bodyParser.json() );
 
 app.get('/api/products', controller.sendAll);
 
+app.get('/api/products/:id', controller.retreveAProduct);
 
 app.delete('/api/products/:id', controller.removeProduct);
 
