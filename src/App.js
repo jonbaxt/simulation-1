@@ -1,18 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import Header from './component/Header/Header';
+import Dashboard from './component//Dashboard/Dashboard';
+import Form from './component/Form/Form';
+
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      save: ''
+    }
+
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className='App'>
+        <div className='header' >
+          <Header />
+        </div>
+
+        <div className='bodyArea'>
+
+          <div className='dash'>
+            <Dashboard />
+          </div>
+
+          <div className='form'>
+          <Form />
+          </div>
+
+        </div>
+
+
       </div>
     );
   }

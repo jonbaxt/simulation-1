@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function Header(){
+export default function Header(){
 
     return (
         <div>
@@ -11,4 +11,3 @@ function Header(){
 }
 
 
-export default Header();
