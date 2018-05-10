@@ -32,8 +32,8 @@ function Product(productImport, delReq, editReq) {
         {/* editReq(e.id) */}
 
         <div>
-            <h1>Product: {e.name}</h1>
-            <h2>Price: ${e.price}</h2>
+            <h4>Product: {e.name}</h4>
+            <h5>Price: ${e.price}</h5>
             <div className='buttonBox'>
             <button className='button' onClick={() => delReq(e.id)} >DELETE</button>
             <button className='button'onClick={() => editReq(e.id)} >EDIT</button>

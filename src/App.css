@@ -96,6 +96,10 @@
   width: 100%;
 }
 
+.pic2{
+  border: solid black 1px;
+  width: 250px;
+}
 .buttonBox{
   margin-top: 30px;
   display: flex;
@@ -126,11 +130,6 @@
   margin-top: 10px;
   margin-bottom: 10px;
   display: flex;
-}
-
-.pic2{
-  border: solid black 1px;
-  width: 60%;
 }
 
 /* ----------------------------------------------------------------------------- */
