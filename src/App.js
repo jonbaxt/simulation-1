@@ -23,7 +23,7 @@ class App extends Component {
       name: '',           //Stores 
       price: '',          //Stores
       selectedProduct: {},
-      change: '' || ADD_CHANGE
+      change: ADD_CHANGE || ''
     }
     this.handleData = this.handleData.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -110,20 +110,27 @@ class App extends Component {
         selectedProduct: '',
         name: '',
         url: '',
-        price: ''
+        price: '',
+        change: ADD_CHANGE
     })}).catch( err => console.log( err ))
     console.log(this.state.data);
   }
+
+  switchUp(TOGGLE){
+    switch(TOGGLE){
+      case ADD_CHANGE:
+      return <button className='button' onClick={this.handleCreate} >Add to Inventory</button>
+      break;
+      case EDIT_CHANGE:
+      return <button className='button' onClick={this.handleEdit} >Save Changes</button>
+      break;
+      default:
+      return <button className='button' onClick={this.handleCreate} >Add to Inventory</button>
+      break;
+    }
+  }
+
   render() {
-    // function changeButtonOnForm(buttonAskedFor) {
-    //   // this.handleEditStart();
-    //   console.log(buttonAskedFor);
-    //   if (buttonAskedFor === ADD_CHANGE) {
-    //     return (<button className='button' onClick={() => this.handleCreate} >Add to Inventory</button>)
-    //   } else if (buttonAskedFor === EDIT_CHANGE) {
-    //     return (<button className='button' onClick={() => this.handleEdit} >Save Changes</button>)
-    //   }
-    // }
     function imagePreview(impUrl) {
       if (impUrl !== '') {
         return (<img className='pic' src={impUrl} alt='' />)
@@ -157,8 +164,8 @@ class App extends Component {
 
               <div className='buttonBox' >
                 <button className='button' onClick={this.handleCancel} >Cancel</button>
-                <button className='button' onClick={this.handleCreate} >Add to Inventory</button>
-                <button className='button' onClick={this.handleEdit} >Save Changes</button>
+                {this.switchUp(this.state.change)}
+                
 
                 {/* {changeButtonOnForm(this.state.change)} */}
               </div>
