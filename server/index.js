@@ -20,7 +20,7 @@ app.get('/api/products/table', controller.sendAll);
 
 app.get('/api/products', controller.fetchTable);
 app.get('/api/products/:id', controller.retreveAProduct);
-app.put('/api/products/:id', controller.changeAProduct);
+app.put('/api/products/change/:id', controller.changeAProduct);
 app.post('/api/products', controller.createAProduct);
 app.delete('/api/products/:id', controller.removeProduct);
 

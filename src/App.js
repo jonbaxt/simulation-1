@@ -47,7 +47,7 @@ class App extends Component {
   componentDidMount() {
     axios.get('/api/products').then((element) => {
       this.setState({ data: element.data })
-      console.log(`From Component did mount `, element);
+      // console.log(`From Component did mount `, element);
     }).catch(err => console.log(`Something went wrong mounting. ${err} `))
   }
   handleCreate() {
@@ -59,6 +59,7 @@ class App extends Component {
     };
     axios.post('/api/products', newProduct)
       .then(element => {
+        // console.log(element.data)
         this.setState({
           data: element.data,
           name: '',
@@ -77,15 +78,16 @@ class App extends Component {
   }
   handleEditGrab(id) {
     axios.get(`/api/products/${id}`).then((element) => {
+      console.log(element.data[0]);
       this.setState({
-        selectedProduct: element.data,
-        url: element.data.imgURL,
-        name: element.data.name,
-        price: element.data.price,
+        selectedProduct: element.data[0],
+        url: element.data[0].imgurl,
+        name: element.data[0].name,
+        price: element.data[0].price,
         change: EDIT_CHANGE
       })
-      console.log(element.data);
-      console.log(this.state.selectedProduct)
+      // console.log(element.data);
+      // console.log(this.state.selectedProduct)
 
     }).catch(err => console.log(err));
   }
@@ -97,23 +99,29 @@ class App extends Component {
       change: 'ADD'
     })
   }
-  handleEdit() {
+  handleEdit() {      //FIXME: THIS function is still broken in server or here.
+    // console.log( this.state )
     const theId = this.state.selectedProduct.id
     const newProd = {
       name: this.state.name,
       price: this.state.price,
       imgurl: this.state.url
     }
-    axios.put(`/api/products/${theId}`, newProd).then(element => {
+    // console.log( newProd );
+    axios.put(`/api/products/change/${theId}`, newProd).then(element => {
+      // console.log( element.data )
+      const { data } = element;
+      console.log( data )
       this.setState({
-        data: element.data,
+        data: data,
         selectedProduct: '',
         name: '',
         url: '',
         price: '',
         change: ADD_CHANGE
-    })}).catch( err => console.log( err ))
-    console.log(this.state.data);
+    })
+  }).catch( err => console.log( err ))
+    // console.log(this.state.data);
   }
 
   switchUp(TOGGLE){
