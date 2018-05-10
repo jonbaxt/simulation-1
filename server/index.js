@@ -15,12 +15,9 @@ massive( process.env.SECRET ).then( dbInst => {
 app.use( bodyParser.json() );
 
 app.get('/api/products', controller.sendAll);
-
 app.get('/api/products/:id', controller.retreveAProduct);
-
+app.put('/api/products/:id', controller.changeAProduct);
+app.post('/api/products', controller.createAProduct);
 app.delete('/api/products/:id', controller.removeProduct);
-
-
-
 
 app.listen(PORT, () => console.log(`Yeah baby! Weclcome to Port: ${PORT}!!!!`))

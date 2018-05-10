@@ -117,8 +117,17 @@
 
 .button{
   background-color: #ED6B5A;
+  font-weight: bold;
   height: 40px;
-  border: none;
+  border: solid black 1px;
+  border-radius: 10px;
+}
+
+.button2{
+  font-weight: bold;
+  background-color: #3AD886;
+  height: 40px;
+  border: solid black 1px;
   border-radius: 10px;
 }
 /* ----------------------------------------------------------------------------- */

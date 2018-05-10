@@ -1,7 +1,7 @@
-import { createStore } from 'redux';
+// import { createStore } from 'redux';
 
-import reducer from './ducks/reducer';
+// import reducer from './ducks/reducer';
 
-let store = createStore(reducer);
+// let store = createStore(reducer);
 
-export default store;
+// export default store;
