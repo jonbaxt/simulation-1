@@ -47,7 +47,7 @@ class App extends Component {
   componentDidMount() {
     axios.get('/api/products').then((element) => {
       this.setState({ data: element.data })
-      console.log(`From Component did mount `.element);
+      console.log(`From Component did mount `, element);
     }).catch(err => console.log(`Something went wrong mounting. ${err} `))
   }
   handleCreate() {
@@ -55,7 +55,7 @@ class App extends Component {
     const newProduct = {
       name: this.state.name,
       price: this.state.price,
-      imgURL: this.state.url
+      imgurl: this.state.url
     };
     axios.post('/api/products', newProduct)
       .then(element => {
@@ -102,7 +102,7 @@ class App extends Component {
     const newProd = {
       name: this.state.name,
       price: this.state.price,
-      imgURL: this.state.url
+      imgurl: this.state.url
     }
     axios.put(`/api/products/${theId}`, newProd).then(element => {
       this.setState({
@@ -120,13 +120,10 @@ class App extends Component {
     switch(TOGGLE){
       case ADD_CHANGE:
       return <button className='button' onClick={this.handleCreate} >Add to Inventory</button>
-      break;
       case EDIT_CHANGE:
       return <button className='button' onClick={this.handleEdit} >Save Changes</button>
-      break;
       default:
       return <button className='button' onClick={this.handleCreate} >Add to Inventory</button>
-      break;
     }
   }
 

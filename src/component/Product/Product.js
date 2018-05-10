@@ -22,7 +22,7 @@ function Product(productImport, delReq, editReq) {
         <div key={e.id} className='product'>
         
         <div>
-        {imagePreview(e.imgURL)}
+        {imagePreview(e.imgurl)}
         </div>
 
         <div>
