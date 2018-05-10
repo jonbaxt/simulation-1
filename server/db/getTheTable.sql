@@ -1,1 +1,1 @@
-SELECT * FROM sim1redoProducts;
+SELECT * FROM sim1redoProducts ORDER BY id ASC;
