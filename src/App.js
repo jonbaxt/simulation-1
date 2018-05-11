@@ -143,7 +143,8 @@ class App extends Component {
       }
     };
     return (
-      <div className='App'><HashRouter><div>
+      <div className='App'>
+      <HashRouter><div>
         <div className='header' ><Header /></div>
         <div className='bodyArea'>
           <div className='dash'><Dashboard give={this.handleData} delReq={this.handleDelete} editReq={this.handleEditGrab} /></div>
