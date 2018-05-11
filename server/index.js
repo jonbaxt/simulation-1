@@ -8,15 +8,18 @@ const controller = require('./controller');
 const app = express();
 
 massive( process.env.SECRET ).then( dbInstance => {
+    dbInstance.seedFile()
+    .then(res => console.log('seed successful'))
+    .catch(err => console.log('seed failed', err))
     app.set( 'db', dbInstance );
     console.log('Outer database is connected.')
 })
 
 app.use( bodyParser.json() );
 app.use( cors() );
+app.use( express.static( `${__dirname}/build`));
 
-
-app.get('/api/products/table', controller.sendAll);
+app.put('/api/products/table', controller.sendAll);
 
 app.get('/api/products', controller.fetchTable);
 app.get('/api/products/:id', controller.retreveAProduct);

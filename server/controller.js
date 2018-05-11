@@ -2,6 +2,7 @@
 module.exports = {
     sendAll: (req, res, next) => {
         const dbInstance = req.app.get( 'db' );
+        console.log('Made it this far.')
         dbInstance.seedFile()
         .then( (table) => {
             console.log(`File seeded`, table)
