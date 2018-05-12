@@ -19,20 +19,21 @@ function Product(productImport, delReq, editReq) {
 
     let createProducts = newar.map( ( e ) => {
         return ( 
-        <div key={e.id} className='product'>
-        
-        <div>
+        <div key={e.id} className='product flC'>
+        <div className='fl flR'>
+        <div className='picDisplay'>
         {imagePreview(e.imgurl)}
         </div>
 
-        <div>
+        <div className='productInfoBox'>
             <h4>Product: {e.name}</h4>
-            <h5>Price: ${e.price}</h5>
-            <div className='buttonBox'>
+            <h5>Price: ${e.price}</h5>    
+        </div>
+        </div>
+        <div className='buttonBoxProduct'>
             <button className='button2' onClick={() => delReq(e.id)} >DELETE</button>
             <button className='button2'onClick={() => editReq(e.id)} >EDIT</button>
             </div>
-        </div>
         </div>
     )})
     return (
